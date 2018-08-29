@@ -5,16 +5,27 @@
         <id property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
+    </resultMap>
 
+    <resultMap id="userMap" type="UserLogin">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <collection property="roles" javaType="Role">
+            <id property="id" column="id"/>
+            <result property="roleName" column="role_name"/>
+        </collection>
     </resultMap>
     <select id="selectUserById" parameterType="long" resultMap="userLoginMap">
         select id,username,password
         from user_login
         where id =#{id}
     </select>
-    <select id="selectUserByUsername" parameterType="String" resultMap="userLoginMap">
-        select id,username,password
-        from user_login
+    <select id="selectUserByUsername" parameterType="String" resultMap="userMap">
+        select u.*,r.*
+        from user_login u
+        left join user_role ur on u.id = ur.user_id
+        left join role r on r.id = ur.role_id
         where username =#{username}
     </select>
     <select id="selectAllUsers" resultMap="userLoginMap">
