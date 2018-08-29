@@ -15,9 +15,7 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
-/**
- * @author Xiaoyue Xiao
- */
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
@@ -56,7 +54,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .tokenKeyAccess ("permitAll()")
                 .checkTokenAccess ("permitAll()")
                 .allowFormAuthenticationForClients ();*/
-
+        //允许以form形式验证客户端（client_id,client_secret)
         oauthServer.allowFormAuthenticationForClients();
     }
 

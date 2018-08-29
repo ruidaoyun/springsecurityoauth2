@@ -11,7 +11,7 @@
         <id property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
-        <collection property="roles" javaType="Role">
+        <collection property="roles" ofType="Role">
             <id property="id" column="id"/>
             <result property="roleName" column="role_name"/>
         </collection>

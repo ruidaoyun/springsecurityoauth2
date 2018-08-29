@@ -94,8 +94,6 @@ public class RedisConfig {
      * @return JedisConnectionFactory
      * @throws
      * @Title: JedisConnectionFactory
-     * @autor lpl
-     * @date 2018年2月24日
      */
     @Bean
     public JedisConnectionFactory JedisConnectionFactory(JedisPoolConfig jedisPoolConfig) {
@@ -148,8 +146,6 @@ public class RedisConfig {
      * @return RedisUtil
      * @throws
      * @Title: redisUtil
-     * @autor lpl
-     * @date 2017年12月21日
      */
     @Bean(name="redisUtil")
     public RedisUtil redisUtil(RedisTemplate<String, Object> redisTemplate) {
