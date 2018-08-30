@@ -7,6 +7,7 @@ import com.belle.springsecurityoauth2.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -14,8 +15,14 @@ import java.util.List;
 public class UsersController {
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private HttpServletResponse response;
+
     @GetMapping("all")
     public List<Users> getAll(){
+
+
         return usersService.getAll ();
     }
 
