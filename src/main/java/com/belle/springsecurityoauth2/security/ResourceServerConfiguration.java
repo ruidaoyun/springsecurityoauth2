@@ -15,10 +15,13 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/emp/one").permitAll()
+                //.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                //.antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers(HttpMethod.GET, "/users/all").permitAll()
                 .antMatchers ("/emp/all").hasRole ("admin")
                 .antMatchers ("/get").hasRole ("admin")
                 .anyRequest().authenticated();
+
     }
 
 }

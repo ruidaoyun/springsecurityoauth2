@@ -46,7 +46,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         UserLogin user = userLoginDAO.selectUserByUsername(s);
-
+        System.out.println (s+"    "+user);
         if (user == null) {
             throw new UsernameNotFoundException("Could not find the user '" + s + "'");
         }
